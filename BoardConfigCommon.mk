@@ -65,13 +65,17 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
-OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
-
 TARGET_CONTINUOUS_SPLASH_ENABLED := true
-TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 TARGET_USES_ION := true
+TARGET_USES_GRALLOC1 := true
 TARGET_USES_NEW_ION_API := true
+OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 USE_OPENGL_RENDERER := true
+
+#TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
+
+
+
 
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
@@ -99,7 +103,7 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET := 0x02000000
 
-TARGET_KERNEL_SOURCE := kernel/cyanogen/msm8916
+TARGET_KERNEL_SOURCE := kernel/cyanogen/sisleylr
 
 # Manifest
 DEVICE_MANIFEST_FILE := $(PLATFORM_PATH)/manifest.xml
@@ -143,7 +147,15 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib64/libflp.so|libshims_flp.so \
     /system/vendor/lib64/libizat_core.so|libshims_get_process_name.so \
     /system/vendor/lib/libflp.so|libshims_flp.so \
-    /system/vendor/lib/libizat_core.so|libshims_get_process_name.so
+    /system/vendor/lib/libizat_core.so|libshims_get_process_name.so \
+    /system/vendor/bin/mm-qcamera-daemon|libshim_atomic.so \
+    /system/vendor/lib/libmmcamera2_imglib_modules.so|libshim_atomic.so \
+    /system/vendor/lib/libqomx_jpegenc.so|libshim_atomic.so \
+    /system/vendor/lib/libmmcamera2_stats_modules.so|libshim_atomic.so \
+    /system/vendor/lib/hw/camera.vendor.msm8916.so|libshim_atomic.so \
+    /system/vendor/lib/hw/camera.vendor.msm8916.so|libboringssl-compat.so \
+    /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so \
+    /system/lib/libcrypto.so|libboringssl-compat.so
 
 # Wi-Fi
 BOARD_HAS_QCOM_WLAN := true

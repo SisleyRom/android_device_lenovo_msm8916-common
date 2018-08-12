@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018 The CyanogenMod Project
+# Copyright (C) 2016 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -34,3 +34,15 @@ LOCAL_MODULE := libshims_get_process_name
 LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := lenovo_atomic.cpp
+LOCAL_SHARED_LIBRARIES := libcutils
+LOCAL_MODULE := libshim_atomic
+LOCAL_MODULE_TAGS := optional
+
+include $(BUILD_SHARED_LIBRARY)
+
+include $(call all-makefiles-under,$(LOCAL_PATH))
+

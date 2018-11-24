@@ -60,9 +60,13 @@ PRODUCT_PACKAGES += \
     libboringssl-compat \
     libshim_atomic
 
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_images
+
+
 # Display
 PRODUCT_PACKAGES += \
-    copybit.msm8916 \
     gralloc.msm8916 \
     hwcomposer.msm8916 \
     libgenlock \
@@ -91,9 +95,6 @@ PRODUCT_PACKAGES += \
     libshims_get_process_name \
     libshims_flp
 
-PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl \
-    android.hardware.gnss@1.0-service
 
 # Init scripts
 PRODUCT_PACKAGES += \

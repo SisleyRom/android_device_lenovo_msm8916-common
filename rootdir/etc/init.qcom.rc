@@ -225,6 +225,7 @@ service rmt_storage /system/vendor/bin/rmt_storage
     user root
     group system wakelock
     writepid /dev/cpuset/system-background/tasks
+    shutdown critical
 
 service hciattach /system/vendor/bin/init.qcom.bt.sh
     class late_start
@@ -234,11 +235,11 @@ service hciattach /system/vendor/bin/init.qcom.bt.sh
     seclabel u:r:bluetooth_loader:s0
     oneshot
 
-on property:bluetooth.hciattach=true
+on property:vendor.bluetooth.hciattach=true
     start hciattach
 
-on property:bluetooth.hciattach=false
-    setprop bluetooth.status off
+on property:vendor.bluetooth.hciattach=false
+    setprop vendor.bluetooth.status off
 
 # FM
 on property:hw.fm.init=0
@@ -263,7 +264,7 @@ service msm_irqbalance /system/vendor/bin/msm_irqbalance -f /system/vendor/etc/m
 service netmgrd /system/vendor/bin/netmgrd
     class main
     user root
-    group root wifi wakelock radio inet oem_2950
+    group root wifi wakelock radio inet
     writepid /dev/cpuset/system-background/tasks
 
 # Adjust socket buffer to enlarge TCP receive window for high bandwidth

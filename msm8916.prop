@@ -1,13 +1,5 @@
 # Display
 ro.opengles.version=196608
-debug.composition.type=c2d 
-debug.mdpcomp.idletime=600 
-persist.hwc.mdpcomp.enable=true 
-persist.hwc.ptor.enable=true 
-debug.enable.sglscale=1
 
 # Perf
 ro.min_freq_0=800000
-
-#WiFi
-wifi.interface=wlan0

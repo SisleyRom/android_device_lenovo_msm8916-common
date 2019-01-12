@@ -39,9 +39,7 @@
 #include <android-base/properties.h>
 #include <android-base/strings.h>
 
-#include "log.h"
 #include "property_service.h"
-#include "util.h"
 #include "vendor_init.h"
 
 #include "init_msm8916.h"
@@ -91,6 +89,8 @@ static void init_alarm_boot_properties()
 
 void vendor_load_properties()
 {
+    // Init a dummy BT MAC address, will be overwritten later
+    property_set("ro.boot.btmacaddr", "00:00:00:00:00:00");
     init_target_properties();
     init_alarm_boot_properties();
 }

@@ -55,15 +55,13 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
     android.hardware.bluetooth@1.0-service
 
-#Camera
+# Camera
 PRODUCT_PACKAGES += \
     libboringssl-compat \
     libshim_atomic
 
-# Charger
-PRODUCT_PACKAGES += \
-    charger_res_images
-
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
 
 # Display
 PRODUCT_PACKAGES += \
@@ -96,6 +94,9 @@ PRODUCT_PACKAGES += \
     libshims_get_process_name \
     libshims_flp
 
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl \
+    android.hardware.gnss@1.0-service
 
 # Init scripts
 PRODUCT_PACKAGES += \
@@ -198,14 +199,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
 
-# Thermal
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.0-impl
-
-# Config File
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf
-
 # Vibrator
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
@@ -214,13 +207,10 @@ PRODUCT_PACKAGES += \
 # Wi-Fi
 PRODUCT_PACKAGES += \
     libwcnss_qmi \
-    wcnss_service \
-    libwpa_client
+    wcnss_service
 
 PRODUCT_PACKAGES += \
     hostapd \
-    wificond \
-    wifilogd \
     wpa_supplicant \
     wpa_supplicant.conf
 

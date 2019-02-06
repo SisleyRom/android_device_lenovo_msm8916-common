@@ -57,7 +57,6 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    libboringssl-compat \
     libshim_atomic
 
 PRODUCT_COPY_FILES += \

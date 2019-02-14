@@ -20,7 +20,6 @@ PLATFORM_PATH := device/cyanogen/msm8916-common
 # Platform
 TARGET_BOARD_PLATFORM := msm8916
 TARGET_BOOTLOADER_BOARD_NAME := MSM8916
-
 TARGET_NO_BOOTLOADER := true
 
 # Architecture
@@ -62,7 +61,8 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 # Camera
 TARGET_NEEDS_LEGACY_CAMERA_HAL1_DYN_NATIVE_HANDLE := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
-    /system/vendor/bin/mm-qcamera-daemon=23
+	/system/bin/mediaserver=22 \
+	/system/vendor/bin/mm-qcamera-daemon=22
 
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
@@ -158,7 +158,10 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/libmmcamera2_imglib_modules.so|libshim_atomic.so \
     /system/vendor/lib/libqomx_jpegenc.so|libshim_atomic.so \
     /system/vendor/lib/libmmcamera2_stats_modules.so|libshim_atomic.so \
-    /system/vendor/lib/hw/camera.vendor.msm8916.so|libshim_atomic.so 
+    /system/vendor/lib/hw/camera.vendor.msm8916.so|libshim_atomic.so \
+    /system/vendor/lib/hw/camera.vendor.msm8916.so|libboringssl-compat.so \
+    /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so \
+    /system/lib/libcrypto.so|libboringssl-compat.so
 
 # Wi-Fi
 BOARD_HAS_QCOM_WLAN := true

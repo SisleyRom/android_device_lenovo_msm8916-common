@@ -213,6 +213,9 @@
 # ESOC devices
 /dev/subsys_esoc*         0640   system     radio
 
+#acct 
+/acct/uid_*               0770   system     system 
+
 #BST
 /sys/devices/virtual/input/input* range                       0660    input      system
 /sys/devices/virtual/input/input* bandwidth                   0660    input      system

@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-PLATFORM_PATH := device/cyanogen/msm8916-common
+PLATFORM_PATH := device/lenovo/msm8916-common
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8916
@@ -59,6 +59,7 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 TARGET_NEEDS_LEGACY_CAMERA_HAL1_DYN_NATIVE_HANDLE := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
 	/system/bin/mediaserver=22 \
+    /system/vendor/lib/libarcsoft_flawless_face_hal.so=22 \
 	/system/vendor/bin/mm-qcamera-daemon=22
 
 # Dexpreopt
@@ -112,8 +113,10 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 an
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET := 0x02000000
+TARGET_KERNEL_SOURCE := kernel/lenovo/msm8916
 KERNEL_TOOLCHAIN := $(PWD)/prebuilts/gcc/linux-x86/aarch64/aarch64-linaro-7/bin
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-gnu-
+
 # Manifest
 DEVICE_MANIFEST_FILE := $(PLATFORM_PATH)/manifest.xml
 

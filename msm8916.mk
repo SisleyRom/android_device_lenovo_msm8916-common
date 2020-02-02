@@ -66,9 +66,6 @@ PRODUCT_PACKAGES += \
     libboringssl-compat \
     libshim_atomic \
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
-
 # Display
 PRODUCT_PACKAGES += \
     gralloc.msm8916 \
@@ -78,7 +75,6 @@ PRODUCT_PACKAGES += \
     memtrack.msm8916
 
 PRODUCT_PACKAGES += \
-    android.hardware.configstore@1.0-service \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.composer@2.1-impl \

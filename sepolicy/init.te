@@ -1,0 +1,2 @@
+allow init proc:file { open read getattr };
+

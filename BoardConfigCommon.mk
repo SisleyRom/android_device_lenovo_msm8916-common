@@ -58,7 +58,7 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 # Camera
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
 	/system/bin/mediaserver=22 \
-    /system/vendor/lib/libarcsoft_flawless_face_hal.so=22 \
+	/system/vendor/lib/libarcsoft_flawless_face_hal.so=22 \
 	/system/vendor/bin/mm-qcamera-daemon=22
 
 # Dexpreopt
@@ -142,7 +142,6 @@ BOARD_USES_QCOM_HARDWARE := true
 # Radio
 MALLOC_SVELTE := true
 TARGET_RIL_VARIANT := caf
-TARGET_USES_OLD_MNC_FORMAT := true
 
 # Recovery
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_cm

@@ -127,9 +127,7 @@ ifeq ($(TARGET_BOARD_PLATFORM_VARIANT),msm8939)
 TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(PLATFORM_PATH)/power/power_ext.c
 endif
 TARGET_HAS_LEGACY_POWER_STATS := true
-ifeq ($(TARGET_BOARD_PLATFORM_VARIANT),msm8916)
 TARGET_HAS_NO_POWER_STATS := true
-endif
 TARGET_HAS_NO_WLAN_STATS := true
 
 # Properties
@@ -165,6 +163,7 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/libqomx_jpegenc.so|libshim_atomic.so \
     /system/vendor/lib/libmmcamera2_stats_modules.so|libshim_atomic.so \
     /system/vendor/lib/hw/camera.vendor.msm8916.so|libshim_atomic.so \
+    /system/vendor/lib/libmmcamera_tuning.so|cam_shim.so \
     /system/vendor/lib/hw/camera.vendor.msm8916.so|libboringssl-compat.so \
     /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so \
     /system/lib/libcrypto.so|libboringssl-compat.so

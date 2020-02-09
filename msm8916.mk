@@ -52,7 +52,8 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     libboringssl-compat \
-    libshim_atomic
+    libshim_atomic \
+    cam_shim
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml

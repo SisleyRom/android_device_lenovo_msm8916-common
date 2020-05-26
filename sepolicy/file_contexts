@@ -13,3 +13,7 @@
 
 # Healthd
 /sys/devices/soc.0/78b8000.i2c/i2c-4/4-006b/power_supply/ex-charger(/.*)?      u:object_r:sysfs_batteryinfo:s0
+
+# TimeKeep
+/sys/devices/soc\.0/qpnp-rtc-[0-9]/rtc/rtc0(/.*)?                         u:object_r:sysfs_rtc:s0
+/(system/vendor|vendor)/bin/timekeep                                      u:object_r:timekeep_exec:s0

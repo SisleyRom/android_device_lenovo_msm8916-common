@@ -3,7 +3,6 @@ af.fast_track_multiplier=1
 audio.deep_buffer.media=true
 audio.offload.min.duration.secs=30
 audio.offload.video=true
-ro.audio.flinger_standbytime_ms=300
 vendor.audio.av.streaming.offload.enable=true
 vendor.audio.offload.buffer.size.kb=64
 vendor.audio.offload.gapless.enabled=true
@@ -21,10 +20,6 @@ ro.bluetooth.hfp.ver=1.7
 ro.bluetooth.sap=true
 ro.qualcomm.bt.hci_transport=smd
 
-# Boot
-sys.vendor.shutdown.waittime=500
-ro.build.shutdown_timeout=0
-
 # Display
 debug.hwui.use_buffer_age=false
 debug.composition.type=c2d
@@ -32,9 +27,6 @@ debug.mdpcomp.idletime=600
 persist.hwc.mdpcomp.enable=true
 persist.hwc.ptor.enable=true
 debug.enable.sglscale=1
-debug.sf.disable_backpressure=1
-debug.sf.latch_unsignaled=1
-debug.sf.recomputecrop=0
 
 # Media
 drm.service.enabled=1
@@ -45,7 +37,7 @@ ro.vendor.qti.sys.fw.bservice_enable=true
 
 # Perf
 ro.config.max_starting_bg=8
-#ro.vendor.extension_library=libqti-perfd-client.so
+ro.vendor.extension_library=libqti-perfd-client.so
 ro.core_ctl_min_cpu=0
 ro.core_ctl_max_cpu=4
 
@@ -57,6 +49,3 @@ ro.telephony.call_ring.multiple=false
 
 # Wi-Fi
 wifi.interface=wlan0
-
-# Wi-Fi display
-persist.debug.wfd.enable=1

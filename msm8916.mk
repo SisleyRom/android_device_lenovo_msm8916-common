@@ -19,6 +19,12 @@
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_ENFORCE_RRO_TARGETS := framework-res
 
+# ANT+
+PRODUCT_PACKAGES += \
+    AntHalService \
+    com.dsi.ant.antradio_library \
+    libantradio
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -34,9 +40,9 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio@4.0-impl \
+    android.hardware.audio@2.0-impl \
     android.hardware.audio@2.0-service \
-    android.hardware.audio.effect@4.0-impl
+    android.hardware.audio.effect@2.0-impl
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml
@@ -53,18 +59,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libboringssl-compat \
     libshim_atomic \
-    cam_shim
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
-
-# Dex optimization
-PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
-PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
-PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
-PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-image-profile.txt
-PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
-PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 
 # Display
 PRODUCT_PACKAGES += \
@@ -112,8 +109,7 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc
 
 PRODUCT_PACKAGES += \
-    init.qcom.bt.sh \
-    init.boot_boost.sh
+    init.qcom.bt.sh
 
 # IRQ balance
 ifeq ($(TARGET_BOARD_PLATFORM_VARIANT),msm8939)
@@ -160,6 +156,7 @@ PRODUCT_COPY_FILES += \
 
 # Permissions
 PRODUCT_COPY_FILES += \
+    external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.dsi.ant.antradio_library.xml \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.telephony.cdma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.cdma.xml \
@@ -210,7 +207,7 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service.cyanogen_8916
+    android.hardware.usb@1.0-service.basic
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp,adb \

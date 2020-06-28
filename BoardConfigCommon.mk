@@ -20,6 +20,7 @@ PLATFORM_PATH := device/lenovo/msm8916-common
 # Platform
 TARGET_BOARD_PLATFORM := msm8916
 TARGET_BOOTLOADER_BOARD_NAME := MSM8916
+
 TARGET_NO_BOOTLOADER := true
 
 # Architecture
@@ -45,6 +46,9 @@ TARGET_CPU_VARIANT := cortex-a53
 TARGET_USES_64_BIT_BINDER := true
 endif
 
+# ANT+
+BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
+
 # Audio
 AUDIO_FEATURE_ENABLED_KPI_OPTIMIZE := true
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
@@ -57,24 +61,13 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 
 # Camera
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
-	/system/bin/mediaserver=22 \
-	/system/vendor/lib/libarcsoft_flawless_face_hal.so=22 \
-	/system/vendor/bin/mm-qcamera-daemon=22
-
-# Dexpreopt
-ifeq ($(HOST_OS),linux)
-ifneq ($(TARGET_BUILD_VARIANT),eng)
-WITH_DEXPREOPT := true
-WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
-WITH_DEXPREOPT_DEBUG_INFO := false
-DONT_DEXPREOPT_PREBUILTS := true
-USE_DEX2OAT_DEBUG := false
-endif
-endif
+    /system/vendor/bin/mm-qcamera-daemon=23
 
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
+
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000
@@ -108,13 +101,12 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8916
 
 # Kernel
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 loop.max_part=7 pm.sleep_mode=1
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 loop.max_part=7
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET := 0x02000000
+
 TARGET_KERNEL_SOURCE := kernel/lenovo/msm8916
-KERNEL_TOOLCHAIN := $(PWD)/prebuilts/gcc/linux-x86/aarch64/aarch64-linaro-7/bin
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-gnu-
 
 # Manifest
 DEVICE_MANIFEST_FILE := $(PLATFORM_PATH)/manifest.xml
@@ -127,8 +119,11 @@ ifeq ($(TARGET_BOARD_PLATFORM_VARIANT),msm8939)
 TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(PLATFORM_PATH)/power/power_ext.c
 endif
 TARGET_HAS_LEGACY_POWER_STATS := true
+ifeq ($(TARGET_BOARD_PLATFORM_VARIANT),msm8916)
 TARGET_HAS_NO_POWER_STATS := true
+endif
 TARGET_HAS_NO_WLAN_STATS := true
+TARGET_USES_INTERACTION_BOOST := true
 
 # Properties
 TARGET_SYSTEM_PROP += $(PLATFORM_PATH)/system.prop

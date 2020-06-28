@@ -64,7 +64,7 @@ TARGET_BOOTANIMATION_HALF_RES := true
 # Camera
 PRODUCT_PACKAGES += \
     libboringssl-compat \
-    libshim_atomic \
+    libshim_atomic
 
 # Display
 PRODUCT_PACKAGES += \

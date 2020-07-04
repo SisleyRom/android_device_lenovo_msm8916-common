@@ -69,6 +69,7 @@ OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000
 TARGET_CONTINUOUS_SPLASH_ENABLED := true
 TARGET_USES_ION := true
+TARGET_USES_C2D_COMPOSITION := true
 
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
@@ -140,7 +141,6 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/libqomx_jpegenc.so|libshim_atomic.so \
     /system/vendor/lib/libmmcamera2_stats_modules.so|libshim_atomic.so \
     /system/vendor/lib/hw/camera.vendor.msm8916.so|libshim_atomic.so \
-    /system/vendor/lib/libmmcamera_tuning.so|cam_shim.so \
     /system/vendor/lib/hw/camera.vendor.msm8916.so|libboringssl-compat.so \
     /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so \
     /system/lib/libcrypto.so|libboringssl-compat.so

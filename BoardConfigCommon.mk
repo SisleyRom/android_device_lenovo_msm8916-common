@@ -139,9 +139,10 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/bin/mm-qcamera-daemon|libshim_atomic.so \
     /system/vendor/lib/libmmcamera2_imglib_modules.so|libshim_atomic.so \
     /system/vendor/lib/libqomx_jpegenc.so|libshim_atomic.so \
+    /system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so \
     /system/vendor/lib/libmmcamera2_stats_modules.so|libshim_atomic.so \
-    /system/vendor/lib/hw/camera.vendor.msm8916.so|libshim_atomic.so \
-    /system/vendor/lib/hw/camera.vendor.msm8916.so|libboringssl-compat.so \
+    /system/lib/hw/camera.vendor.msm8916.so|libshim_atomic.so \
+    /system/lib/hw/camera.vendor.msm8916.so|libboringssl-compat.so \
     /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so \
     /system/lib/libcrypto.so|libboringssl-compat.so
 

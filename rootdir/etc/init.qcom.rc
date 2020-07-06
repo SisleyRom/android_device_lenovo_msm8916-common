@@ -233,7 +233,7 @@ service charger /system/bin/charger
 service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
-    group camera system inet input graphics gps
+    group camera system inet input graphics
     writepid /dev/cpuset/camera-daemon/tasks
 
 on property:sys.boot_completed=1

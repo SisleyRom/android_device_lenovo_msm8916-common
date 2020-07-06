@@ -153,17 +153,13 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_PACKAGES += \
-    libmm-omxcore \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
     libOmxVdec \
-    libOmxVdecHevc \
-    libOmxSwVencHevc \
     libOmxVenc \
-    libOmxVidcCommon \
     libstagefrighthw
 
 PRODUCT_COPY_FILES += \
@@ -241,6 +237,8 @@ PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.root_access=1 \
+    persist.service.adb.enable=1 \
     persist.sys.usb.config=mtp,adb \
     ro.adb.secure=0 \
     ro.secure=0 \

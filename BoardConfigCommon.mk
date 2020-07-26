@@ -157,6 +157,7 @@ BOARD_SEPOLICY_DIRS += \
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
+    /system/vendor/lib64/libizat_core.so|libshims_get_process_name.so \
     /system/vendor/bin/mm-qcamera-daemon|libshim_atomic.so \
     /system/vendor/lib/libmmcamera2_imglib_modules.so|libshim_atomic.so \
     /system/vendor/lib/libqomx_jpegenc.so|libshim_atomic.so \

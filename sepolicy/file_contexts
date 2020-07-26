@@ -17,3 +17,7 @@
 # TimeKeep
 /sys/devices/soc\.0/qpnp-rtc-[0-9]/rtc/rtc0(/.*)?                         u:object_r:sysfs_rtc:s0
 /(system/vendor|vendor)/bin/timekeep                                      u:object_r:timekeep_exec:s0
+
+# widevine
+/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.2-service.widevine    u:object_r:hal_drm_widevine_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.2-service.clearkey    u:object_r:hal_drm_widevine_exec:s0

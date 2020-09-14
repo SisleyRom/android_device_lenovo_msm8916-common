@@ -51,8 +51,6 @@ BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
 # Audio
 AUDIO_FEATURE_DEEP_BUFFER_RINGTONE := true
-AUDIO_FEATURE_ENABLED_AUDIOSPHERE := true
-AUDIO_FEATURE_ENABLED_DS2_DOLBY_DAP := true
 AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := true
 AUDIO_FEATURE_ENABLED_KPI_OPTIMIZE := true
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
@@ -157,7 +155,10 @@ BOARD_SEPOLICY_DIRS += \
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
+    /system/vendor/lib64/libflp.so|libshims_flp.so \
     /system/vendor/lib64/libizat_core.so|libshims_get_process_name.so \
+    /system/vendor/lib/libflp.so|libshims_flp.so \
+    /system/vendor/lib/libizat_core.so|libshims_get_process_name.so \
     /system/vendor/bin/mm-qcamera-daemon|libshim_atomic.so \
     /system/vendor/lib/libmmcamera2_imglib_modules.so|libshim_atomic.so \
     /system/vendor/lib/libqomx_jpegenc.so|libshim_atomic.so \

@@ -18,7 +18,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.audio.sdk.ssr=false \
     vendor.audio.offload.buffer.size.kb=64 \
     vendor.audio.offload.gapless.enabled=true \
-    vendor.audio.pp.asphere.enabled=true \
     vendor.audio.tunnel.encode=false \
     vendor.audio_hal.period_size=192 \
     vendor.voice.path.for.pcm.voip=true \
@@ -38,28 +37,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.cpp.duplication=false 
+    persist.camera.cpp.duplication=false \
+    camera2.portability.force_api=1 \
+    persist.camera.hal.debug.mask=0 \
+    
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.egl.hw=0 \
-    debug.sf.hw=0 \
     debug.enable.sglscale=1 \
     debug.hwui.use_buffer_age=false \
     debug.mdpcomp.idletime=600 \
-    debug.mdpcomp.logs=0 \
     debug.sf.disable_backpressure=1 \
-    debug.sf.enable_gl_backpressure=1
     debug.sf.latch_unsignaled=1 \
-    debug.sf.recomputecrop=0 \
-    dev.pm.dyn_samplingrate=1 \
     persist.hwc.mdpcomp.enable=true \
-    persist.hwc.ptor.enable=true \
-    ro.qualcomm.cabl=2 \
-    ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
-    ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
-    ro.surface_flinger.vsync_event_phase_offset_ns=4000000 \
-    ro.surface_flinger.vsync_sf_event_phase_offset_ns=8000000
+    persist.hwc.ptor.enable=true
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -82,6 +73,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.qti.sys.fw.bservice_enable=true \
     ro.vendor.qti.am.reschedule_service=true
 
+# NITZ
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.rild.nitz_plmn="" \
+    persist.rild.nitz_long_ons_0="" \
+    persist.rild.nitz_long_ons_1="" \
+    persist.rild.nitz_long_ons_2="" \
+    persist.rild.nitz_long_ons_3="" \
+    persist.rild.nitz_short_ons_0="" \
+    persist.rild.nitz_short_ons_1="" \
+    persist.rild.nitz_short_ons_2="" \
+    persist.rild.nitz_short_ons_3="" \
+
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.max_starting_bg=8 \
@@ -91,9 +94,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.data.netmgrd.qos.enable=true \
     persist.data.qmi.adb_logmask=0 \
     persist.radio.add_power_save=1 \
     persist.radio.apm_sim_not_pwdn=1 \
+    persist.radio.data_con_rprt=1 \
+    persist.radio.data_ltd_sys_ind=1 \
+    persist.radio.mt_sms_ack=20 \
+    persist.radio.no_cons_man_roam=1 \
+    persist.radio.rat_on=combine \
+    persist.radio.sib16_support=1 \
+    ril.subscription.types=NV,RUIM \
+    rild.libargs=-d /dev/smd0 \
+    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
     ro.telephony.call_ring.multiple=false \
     ro.ril.svlte1x=false \
     ro.ril.svdo=false

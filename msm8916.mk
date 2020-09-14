@@ -80,9 +80,11 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.mapper@2.0-impl \
     android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service \
-    android.hardware.renderscript@1.0-impl \
-    android.hardware.renderscript@1.0-service
+    android.hardware.memtrack@1.0-service
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
+    ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -204,6 +206,11 @@ PRODUCT_PACKAGES += \
 # Recovery
 PRODUCT_PACKAGES += \
     librecovery_updater_cm
+
+# RenderScript HAL
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl \
+    android.hardware.renderscript@1.0-service
 
 # Seccomp
 PRODUCT_COPY_FILES += \

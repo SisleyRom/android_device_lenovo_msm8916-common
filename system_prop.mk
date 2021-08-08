@@ -2,29 +2,17 @@
 PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
     audio.deep_buffer.media=true \
-    audio.offload.disable=1 \
     audio.offload.min.duration.secs=30 \
-    audio.offload.pcm.16bit.enable=true \
-    audio.offload.pcm.24bit.enable=false \
     audio.offload.video=true \
-    persist.vendor.audio.fluence.audiorec=true \
-    persist.vendor.audio.fluence.speaker=true \
-    persist.vendor.audio.fluence.voicecall=true \
-    persist.vendor.audio.fluence.voicerec=true \
-    ro.audio.flinger_standbytime_ms=300 \
-    ro.config.media_vol_steps=25 \
-    ro.config.vc_call_vol_steps=7 \
-    ro.vendor.audio.sdk.fluencetype=fluence \
-    ro.vendor.audio.sdk.ssr=false \
+    vendor.audio.av.streaming.offload.enable=true \
     vendor.audio.offload.buffer.size.kb=64 \
     vendor.audio.offload.gapless.enabled=true \
-    vendor.audio.tunnel.encode=false \
     vendor.audio_hal.period_size=192 \
-    vendor.voice.path.for.pcm.voip=true \
-    vendor.voice.playback.conc.disabled=true \
-    vendor.voice.record.conc.disabled=true \
-    vendor.voice.voip.conc.disabled=true \
-    vidc.enc.narrow.searchrange=1
+    vendor.voice.path.for.pcm.voip=true
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.media_vol_steps=25 \
+    ro.config.vc_call_vol_steps=7
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -40,34 +28,32 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.cpp.duplication=false \
     camera2.portability.force_api=1 \
     persist.camera.hal.debug.mask=0 \
-    
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.enable.sglscale=1 \
     debug.hwui.use_buffer_age=false \
-    debug.composition.type=c2d \
     debug.mdpcomp.idletime=600 \
     debug.sf.disable_backpressure=1 \
     debug.sf.latch_unsignaled=1 \
     persist.hwc.mdpcomp.enable=true \
     persist.hwc.ptor.enable=true
 
-# DRM
+# LMKD
 PRODUCT_PROPERTY_OVERRIDES += \
-    drm.service.enabled=1
+    ro.lmk.critical_upgrade=true \
+    ro.lmk.downgrade_pressure=60 \
+    ro.lmk.kill_heaviest_task=false \
+    ro.lmk.log_stats=true \
+    ro.lmk.upgrade_pressure=40 \
+    ro.lmk.use_psi=false
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.stagefright.ccodec=0 \
     debug.stagefright.omx_default_rank.sw-audio=1 \
     debug.stagefright.omx_default_rank=0 \
-    media.aac_51_output_enabled=true \
-    media.stagefright.legacyencoder=true \
-    media.stagefright.less-secure=true \
-    mm.enable.qcom_parser=3407871 \
-    mm.enable.sec.smoothstreaming=true \
-    mmp.enable.3g2=true
+    drm.service.enabled=1 \
+    vidc.enc.narrow.searchrange=1
 
 # Memory optimizations
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -95,22 +81,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.netmgrd.qos.enable=true \
     persist.data.qmi.adb_logmask=0 \
     persist.radio.add_power_save=1 \
     persist.radio.apm_sim_not_pwdn=1 \
-    persist.radio.data_con_rprt=1 \
-    persist.radio.data_ltd_sys_ind=1 \
-    persist.radio.mt_sms_ack=20 \
-    persist.radio.no_cons_man_roam=1 \
-    persist.radio.rat_on=combine \
-    persist.radio.sib16_support=1 \
-    ril.subscription.types=NV,RUIM \
-    rild.libargs=-d /dev/smd0 \
-    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
-    ro.telephony.call_ring.multiple=false \
-    ro.ril.svlte1x=false \
-    ro.ril.svdo=false
+    ro.telephony.call_ring.multiple=false
 
 # Wi-Fi
 PRODUCT_PROPERTY_OVERRIDES += \

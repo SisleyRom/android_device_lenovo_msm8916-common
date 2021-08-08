@@ -31,15 +31,16 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
-    audio.primary.msm8916 \
     audio.r_submix.default \
     audio.usb.default \
     libaudio-resampler \
+    tinymix
+
+PRODUCT_PACKAGES += \
+    audio.primary.msm8916 \
     libqcompostprocbundle \
     libqcomvisualizer \
-    libqcomvoiceprocessing \
-    libqcomvoiceprocessingdescriptors \
-    tinymix
+    libqcomvoiceprocessing
 
 PRODUCT_PACKAGES += \
     android.hardware.audio@4.0-impl \
@@ -67,18 +68,17 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    copybit.msm8916 \
     gralloc.msm8916 \
     hwcomposer.msm8916 \
-    memtrack.msm8916 \
     libgenlock \
-    libtinyxml
+    libtinyxml \
+    memtrack.msm8916
 
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.composer@2.1-impl \
-    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.graphics.mapper@2.0-impl-2.1 \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service
 
@@ -119,7 +119,6 @@ PRODUCT_PACKAGES += \
 # Init scripts
 PRODUCT_PACKAGES += \
     init.qcom.rc \
-    init.qcom.mem.sh \
     init.qcom.power.rc \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \

@@ -61,6 +61,9 @@ USE_XML_AUDIO_POLICY_CONF := 1
 # Bluetooth
 BOARD_HAVE_BLUETOOTH_QCOM := true
 
+# Camera
+TARGET_NEEDS_TEXT_RELOCATIONS := true
+
 # DexPreopt debug info
 WITH_DEXPREOPT_DEBUG_INFO := false
 
@@ -121,9 +124,6 @@ BOARD_USES_QCOM_HARDWARE := true
 MALLOC_SVELTE := true
 TARGET_RIL_VARIANT := caf
 
-# Recovery
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_cm
-
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)
 
@@ -139,14 +139,12 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/libflp.so|libshims_flp.so \
     /system/vendor/lib/libizat_core.so|libshims_get_process_name.so \
     /system/vendor/bin/mm-qcamera-daemon|libshim_atomic.so \
-    /system/vendor/lib/libmmcamera2_imglib_modules.so|libshim_atomic.so \
-    /system/vendor/lib/libqomx_jpegenc.so|libshim_atomic.so \
-    /system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so \
-    /system/vendor/lib/libmmcamera2_stats_modules.so|libshim_atomic.so \
     /system/lib/hw/camera.vendor.msm8916.so|libshim_atomic.so \
-    /system/lib/hw/camera.vendor.msm8916.so|libboringssl-compat.so \
+    /system/vendor/lib/libmmcamera2_imglib_modules.so|libshim_atomic.so \
+    /system/vendor/lib/libmmcamera2_stats_modules.so|libshim_atomic.so \
+    /system/vendor/lib/libqomx_jpegenc.so|libshim_atomic.so \
     /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so \
-    /system/lib/libcrypto.so|libboringssl-compat.so
+    /system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so
 
 # Wi-Fi
 BOARD_HAS_QCOM_WLAN := true
@@ -163,3 +161,6 @@ TARGET_USES_QCOM_WCNSS_QMI := true
 WIFI_DRIVER_FW_PATH_AP := "ap"
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
+
+# Inherit from proprietary files
+-include vendor/lenovo/msm8916-common/BoardConfigVendor.mk

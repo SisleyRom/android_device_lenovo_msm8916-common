@@ -128,7 +128,7 @@ PRODUCT_PACKAGES += \
     init.qcom.bt.sh
 
 # IRQ balance
-ifeq ($(TARGET_BOARD_PLATFORM_VARIANT),msm8939)
+ifeq ($(TARGET_BOARD_PLATFORM_VARIANT),msm8916)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
 endif
@@ -205,10 +205,6 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2
 
-# Recovery
-PRODUCT_PACKAGES += \
-    librecovery_updater_cm
-
 # RenderScript HAL
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl \
@@ -269,3 +265,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+
+# Call the proprietary setup
+$(call inherit-product, vendor/lenovo/msm8916-common/msm8916-common-vendor.mk)

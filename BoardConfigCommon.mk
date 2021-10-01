@@ -62,10 +62,22 @@ USE_XML_AUDIO_POLICY_CONF := 1
 BOARD_HAVE_BLUETOOTH_QCOM := true
 
 # Camera
-TARGET_NEEDS_TEXT_RELOCATIONS := true
+TARGET_HAS_LEGACY_CAMERA_HAL1 := true
+TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
+    /system/bin/cameraserver=22 \
+    /system/bin/mediaserver=22 \
+    /system/vendor/bin/mm-qcamera-daemon=22
 
 # DexPreopt debug info
 WITH_DEXPREOPT_DEBUG_INFO := false
+
+# Dexpreopt
+ifeq ($(HOST_OS),linux)
+  ifneq ($(TARGET_BUILD_VARIANT),eng)
+    WITH_DEXPREOPT ?= true
+  endif
+endif
+WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
 
 # Display
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
@@ -93,6 +105,9 @@ TARGET_QCOM_NO_FM_FIRMWARE := true
 EXCLUDE_SERIF_FONTS := true
 SMALLER_FONT_FOOTPRINT := true
 
+# GPS
+TARGET_NO_RPC := true
+
 # Kernel
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 loop.max_part=7
@@ -112,9 +127,6 @@ TARGET_USES_MEDIA_EXTENSIONS := true
 TARGET_LMKD_STATS_LOG := true
 
 # Power
-ifeq ($(TARGET_BOARD_PLATFORM_VARIANT),msm8939)
-TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(PLATFORM_PATH)/power/power_ext.c
-endif
 TARGET_USES_INTERACTION_BOOST := true
 
 # QCOM

@@ -2,13 +2,17 @@
 /dev/cpuset(/.*)?                                                         u:object_r:cgroup:s0
 /dev/stune(/.*)?                                                          u:object_r:cgroup:s0
 
+# Healthd
+/sys/devices/soc.0/78b8000.i2c/i2c-4/4-006b/power_supply/ex-charger(/.*)?      u:object_r:sysfs_batteryinfo:s0
+
+
 # Lights
 /sys/devices/soc\.0/gpio-leds\.[a-z0-9]+/leds(/.*)?                       u:object_r:sysfs_leds:s0
 /sys/devices/soc\.0/qcom,camera-led-flash\.[a-z0-9]+/leds(/.*)?           u:object_r:sysfs_leds:s0
 /sys/devices/soc\.0/[a-z0-9]+\.i2c/i2c-[0-9]/[0-9]-[a-z0-9]+/leds(/.*)?   u:object_r:sysfs_leds:s0
 
-# Healthd
-/sys/devices/soc.0/78b8000.i2c/i2c-4/4-006b/power_supply/ex-charger(/.*)?      u:object_r:sysfs_batteryinfo:s0
+# Sensor
+/data/misc/sensor(/.*)?                                    u:object_r:sensors_data_file:s0
 
 # TimeKeep
 /sys/devices/soc\.0/qpnp-rtc-[0-9]/rtc/rtc0(/.*)?                         u:object_r:sysfs_rtc:s0

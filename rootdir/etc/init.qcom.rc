@@ -151,6 +151,9 @@ on boot
     chmod 0664 /sys/class/graphics/fb0/mode
     chown system graphics /sys/class/graphics/fb0/modes
     chmod 0664 /sys/class/graphics/fb0/modes
+    
+    # GnssConfiguration doesn't actually look at gps.conf, just the debug file
+    mount none /system/etc/gps.conf /system/etc/gps_debug.conf bind
 
 service irsc_util /system/vendor/bin/irsc_util "/system/vendor/etc/sec_config"
     class main

@@ -62,6 +62,7 @@ USE_XML_AUDIO_POLICY_CONF := 1
 BOARD_HAVE_BLUETOOTH_QCOM := true
 
 # Camera
+TARGET_NEEDS_LEGACY_CAMERA_HAL1_DYN_NATIVE_HANDLE := true
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
     /system/bin/cameraserver=22 \
@@ -105,12 +106,16 @@ TARGET_QCOM_NO_FM_FIRMWARE := true
 EXCLUDE_SERIF_FONTS := true
 SMALLER_FONT_FOOTPRINT := true
 
+# Init
+TARGET_INIT_VENDOR_LIB := libinit_msm8916
+TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8916
+
 # GPS
 TARGET_NO_RPC := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 loop.max_part=7
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 loop.max_part=7
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET := 0x02000000
